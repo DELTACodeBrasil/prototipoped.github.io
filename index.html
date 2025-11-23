@@ -55,6 +55,7 @@
             line-height: 1.6;
             transition: all 0.4s ease;
             -webkit-text-size-adjust: 100%; /* Evita zoom automático em iOS */
+            overflow-x: hidden; /* Evita rolagem horizontal */
         }
         
         .container {
@@ -65,12 +66,12 @@
         }
         
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .section-title h2 {
@@ -98,8 +99,9 @@
             text-align: center;
             color: var(--cinza-medio);
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 30px;
             font-size: clamp(0.95rem, 2.5vw, 1.1rem); /* Tamanho responsivo */
+            padding: 0 10px;
         }
         
         .btn {
@@ -320,7 +322,7 @@
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://lh3.googleusercontent.com/p/AF1QipOerZrI9xjLbCOsZYIwTi6OdcO18DhzD9ikVjin=s680-w680-h510-rw') no-repeat center center;
             background-size: cover;
             color: var(--branco);
-            padding: 140px 0 100px;
+            padding: 120px 0 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -342,6 +344,7 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            padding: 0 15px;
         }
         
         .hero h1 {
@@ -663,16 +666,20 @@
             font-size: 0.95rem;
         }
         
-        /* Contato */
+        /* Contato - CORREÇÃO PRINCIPAL */
         .contact-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr;
+            gap: 40px;
             align-items: start;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
         }
         
         .contact-info {
-            padding-right: 15px;
+            padding: 0;
+            width: 100%;
         }
         
         .contact-info h3 {
@@ -734,10 +741,12 @@
         
         .contact-form {
             background: var(--cinza-claro);
-            padding: 35px 30px;
+            padding: 30px 25px;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             height: fit-content;
+            width: 100%;
+            max-width: 100%;
         }
         
         .form-group {
@@ -913,9 +922,19 @@
             }
         }
         
-        @media (max-width: 992px) {
-            .about-content,
+        @media (min-width: 992px) {
             .contact-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+            
+            .contact-info {
+                padding-right: 15px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
@@ -923,10 +942,6 @@
             .about-image {
                 height: 400px;
                 order: -1;
-            }
-            
-            .contact-info {
-                padding-right: 0;
             }
             
             section {
@@ -1015,7 +1030,7 @@
             }
             
             .hero {
-                padding: 120px 0 80px;
+                padding: 100px 0 60px;
             }
             
             .hero-buttons {
@@ -1137,6 +1152,19 @@
             .footer-content {
                 gap: 30px;
             }
+            
+            .contact-details {
+                padding: 20px;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .contact-icon {
+                margin-bottom: 8px;
+            }
         }
         
         @media (max-width: 400px) {
@@ -1167,6 +1195,10 @@
             
             .social-links {
                 justify-content: center;
+            }
+            
+            .contact-form {
+                padding: 20px 15px;
             }
         }
     </style>
